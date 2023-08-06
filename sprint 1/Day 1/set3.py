@@ -140,7 +140,7 @@ outputfile.close()
 
 def divisible(a,b) :
     try:
-        c=int(a)/int(b);
+        c=int(a)/int(b)
         return (c)
     except :
         return "Cannot divide by zero."
