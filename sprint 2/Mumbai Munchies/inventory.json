@@ -1,0 +1,22 @@
+{
+     "sanck_inventory": [
+          {
+               "snackId": "1",
+               "snackName": "samosa",
+               "price": 15,
+               "availability": "yes"
+          },
+          {
+               "snackId": "2",
+               "snackName": "chips",
+               "price": 30.0,
+               "availability": "yes"
+          },
+          {
+               "snackId": "3",
+               "snackName": "pav bhaji",
+               "price": 45.0,
+               "availability": "yes"
+          }
+     ]
+}
