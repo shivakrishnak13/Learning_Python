@@ -49,7 +49,9 @@ def addItemToInventory():
 
         inventory.append(item)
         saveInventory(inventory)
+        print('••••••••••••••••••••••••••••••••••')
         print(f"item added succesfull with of {itemId}")
+        print('••••••••••••••••••••••••••••••••••')
         showOptions()
     else :
         print("Invalid Input ! Enter correct avaiblity as (yes or no)")
@@ -62,7 +64,10 @@ def removeItemFromInventory():
     idToRemove = int(input ('enter Id to be removed from Inventory:'))
     delinventory = [item for item in inventory if item['id'] != idToRemove ]
     saveInventory(delinventory)
+    print('••••••••••••••••••••••••••••••••••')
     print ("item deleted successfully ")
+    print('••••••••••••••••••••••••••••••••••')
+    showOptions()
 
 # updater avaibiltity........
 def updateAvailability():
@@ -79,7 +84,9 @@ def updateAvailability():
                 showOptions()
                 break
 
+        print('••••••••••••••••••••••••••••••••••')
         print('enter valid id')
+        print('••••••••••••••••••••••••••••••••••')
         showOptions()
     else :
         print("Invalid Input! Enter Correct Availablility")
@@ -107,7 +114,9 @@ def updateOrderStatus():
         if item['orderId'] == orderId :
             item.update({'status':status})
             saveOrderDetails(order_inventory)
+            print('••••••••••••••••••••••••••••••••••')
             print ('order updated successfully!')
+            print('••••••••••••••••••••••••••••••••••')
             showOptions()
 
 #place order
@@ -147,6 +156,9 @@ def placeOrder():
 
     order_inventory.append(orderDetails)
     saveOrderDetails(order_inventory)
+    print('••••••••••••••••••••••••••••••••••')
+    print("Order placed successfull")
+    print('••••••••••••••••••••••••••••••••••')
     showOptions()
 
 
@@ -154,7 +166,7 @@ def placeOrder():
 # View all orders
 
 def viewAllOrders() :
-    print(order_inventory)
+    # print(order_inventory)
     print('*=== All Order Details ==*')
     print('--------------------------')
     for item in order_inventory :
@@ -215,7 +227,7 @@ def selected_option(option) :
     elif option == 7 :
         filterByStatus()
     elif option == 8 :
-        print("\n")
+        print('••••••••••••••••••••••••••••••••••')
         print("Thanks for visiting Zesty Zomato: The Great Food Fiasco ")
         exit()
         

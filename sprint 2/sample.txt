@@ -1,0 +1,3 @@
+content = file.read()       # Reads the entire content
+line = file.readline()      # Reads a single line
+lines = file.readlines()    # Reads all lines and returns a list
