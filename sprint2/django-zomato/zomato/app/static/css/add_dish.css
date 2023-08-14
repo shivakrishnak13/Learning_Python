@@ -1,0 +1,21 @@
+.title{
+    text-align: center;
+    color: red;
+}
+
+form{
+    width: 600px;
+    margin: auto;
+    padding: 20px 40px 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.inputbox{
+    width:80%;
+    height: 35px;
+    border-radius:3px ;
+    transition:.5s ease all;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Dish</title>
+</head>
+<style>
+    /* update.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inputbox,
+.selectbox {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.selectbox {
+    width: 99%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url('arrow-down.svg') no-repeat right center;
+    background-size: 20px 20px;
+    padding-right: 40px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1 class="title">UPDATE DISH</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input class="inputbox" type="text" name="name" placeholder="Enter dish name" value="{{ dish.name }}" required>
+            <input class="inputbox" type="number" name="price" placeholder="Enter dish price" step="0.01" value="{{ dish.price }}" required>
+            <select class="selectbox" name="availability" required>
+                <option value="">Select availability</option>
+                <option value="Yes" {% if dish.availability == 'Yes' %}selected{% endif %}>Yes</option>
+                <option value="No" {% if dish.availability == 'No' %}selected{% endif %}>No</option>
+            </select>
+            <button class="submit-button" type="submit">Update</button>
+            <a class="back-link" href="{% url 'home' %}">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>

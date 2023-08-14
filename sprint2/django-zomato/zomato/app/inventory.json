@@ -1,0 +1,96 @@
+{
+    "dishes": [
+        {
+            "id": 1,
+            "name": "Chips",
+            "price": 10.99,
+            "availability": "Yes"
+        },
+        {
+            "id": 2,
+            "name": "Samosa",
+            "price": 8.49,
+            "availability": "No"
+        },
+        {
+            "id": 3,
+            "name": "Burger",
+            "price": 12.99,
+            "availability": "Yes"
+        },
+        {
+            "id": 4,
+            "name": "Pizza",
+            "price": 15.99,
+            "availability": "Yes"
+        },
+        {
+            "id": 5,
+            "name": "Pasta",
+            "price": 11.49,
+            "availability": "Yes"
+        },
+        {
+            "id": 6,
+            "name": "Salad",
+            "price": 7.99,
+            "availability": "No"
+        },
+        {
+            "id": 7,
+            "name": "Ice Cream",
+            "price": 5.99,
+            "availability": "Yes"
+        },
+        {
+            "id": 8,
+            "name": "Coffee",
+            "price": 3.49,
+            "availability": "Yes"
+        },
+        {
+            "id": 9,
+            "name": "Green Tea",
+            "price": 2.99,
+            "availability": "No"
+        },
+        {
+            "id": 11,
+            "name": "Pav Bhaji",
+            "price": 26.5,
+            "availability": "Yes"
+        },
+        {
+            "id": 12,
+            "name": "Bhel Puri",
+            "price": 56.5,
+            "availability": "Yes"
+        },
+        {
+            "id": 13,
+            "name": "Pakoda",
+            "price": 25.6,
+            "availability": "No"
+        }
+    ],
+    "orders": [
+        {
+            "order_id": 1,
+            "name": "Shiva",
+            "quantity": 1,
+            "totalPrice": 10.99,
+            "item_name": "Chips",
+            "item_price": 10.99,
+            "status": "On the Way"
+        },
+        {
+            "order_id": 2,
+            "name": "Shiva",
+            "quantity": 2,
+            "totalPrice": 21.98,
+            "item_name": "Chips",
+            "item_price": 10.99,
+            "status": "Delivered"
+        }
+    ]
+}

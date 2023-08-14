@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        background: #293547;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border: 1px solid #293547;
+      }
+      .heading {
+        margin-left: 30px;
+      }
+
+      /* Style for the "Add Items" button in the navigation bar */
+      .add-items-button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 30px;
+      }
+
+      .add-items-button:hover {
+        background-color: #218838;
+      }
+      .heading {
+        text-decoration: solid;
+        margin-left: 30px;
+      }
+      .main-flex {
+        display: flex;
+      }
+      .left-items {
+        width: 60%;
+        padding: 20px;
+      }
+      .items-div {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      /* Style for the dish cards */
+      .dish-card {
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .dish-name {
+        font-family: cursive;
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .dish-price {
+        font-family: sans-serif;
+        font-size: 18px;
+        margin: 5px 0;
+      }
+
+      .available {
+        font-size: medium;
+        font-family: cursive;
+        color: green;
+      }
+
+      .not-available {
+        font-size: medium;
+        font-family: cursive;
+        color: red;
+      }
+
+      .update-button,
+      .delete-button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+        text-decoration: none;
+      }
+
+      .update-button:hover {
+        background-color: #0056b3;
+      }
+
+      .delete-button {
+        background-color: #dc3545;
+        margin-left: 10px;
+      }
+      .delete-button:hover {
+        background-color: #bd2130;
+      }
+      /* Add this to your existing CSS */
+      .order-button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+      }
+
+      .order-button:hover {
+        background-color: #218838;
+      }
+      .order-dis.disabled {
+        background-color: #d3d3d3;
+        cursor: not-allowed;
+      }
+      .order-dis {
+        background-color: #1d7530;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: not-allowed;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+      }
+      .anchor {
+        text-decoration: none;
+        color: white;
+      }
+
+      .order-items {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        width: 100%;
+        border-radius: 0.5rem;
+      }
+      /* CSS styles for orders */
+      .order-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .order-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .order-item {
+        border: 1px solid #ddd;
+        padding: 15px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .order-details {
+        font-size: 16px;
+      }
+
+      .order-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .update-button {
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .update-button:hover {
+        background-color: #0056b3;
+      }
+      .add-items-button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .add-items-button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2 class="heading">Zomato Chronicles</h2>
+      <button class="add-items-button">
+        <a href="{% url 'add_dish' %}" class="anchor">Add Items</a>
+      </button>
+    </nav>
+
+    <div class="main-flex">
+      <div class="left-items">
+        <h1 style="text-align: center">Dishes</h1>
+
+        <div class="items-div">
+          {% for dish in dishes %}
+          <div class="dish-card">
+            <h2 class="dish-name">
+              {{ dish.name }}
+              <span
+                class="{% if dish.availability == 'Yes' %}available{% else %}not-available{% endif %}"
+              >
+                {% if dish.availability == 'Yes' %}(Available){% else %}(Not
+                Available){% endif %}
+              </span>
+            </h2>
+            <p class="dish-price">${{ dish.price }}</p>
+            {% if dish.availability == 'Yes' %}
+            <button class="order-button">
+              <a href="{% url 'order' dish.id %}" class="anchor">Order</a>
+            </button>
+            {% else %}
+            <button class="order-dis" disabled>Order</button>
+            {% endif %}
+            <button class="update-button">
+              <a href="{% url 'update' dish.id %}" class="anchor">Update</a>
+            </button>
+            <button class="delete-button" data-dish-id="{{dish.id}}">
+              Delete
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="right-orders">
+        <h1 style="text-align: center">Orders</h1>
+        <div class="order-container">
+          <div class="order-items">
+            {% for order in Orders %}
+            <div class="order-item">
+              <div class="order-details-left">
+                <p><strong>Order ID:</strong> {{ order.order_id }}</p>
+                <p><strong>Customer Name:</strong> {{ order.name }}</p>
+                <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+                <p><strong>Total Price:</strong> ${{ order.totalPrice }}</p>
+              </div>
+              <div class="order-details-right">
+                <p><strong>Item Name:</strong> {{ order.item_name }}</p>
+                <p><strong>Item Price:</strong> ${{ order.item_price }}</p>
+                <p><strong>Status:</strong> {{ order.status }}</p>
+              </div>
+              <div class="order-buttons">
+                <button class="update-button"><a href="{% url 'update_status' order.order_id %}" class="anchor">Update Status</a></button>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const deleteButtons = document.querySelectorAll(".delete-button");
+
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const dishId = event.target.getAttribute("data-dish-id");
+      console.log(typeof dishId);
+      try {
+        const response = await fetch(
+          `http://localhost:8000/zomato/delete/${dishId}/`,
+          {
+            method: "GET",
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+          }
+        );
+        console.log(response);
+        if (response.ok) {
+          const card = event.target.closest(".dish-card");
+          card.remove();
+        } else {
+          console.error("Failed to delete dish");
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    });
+  });
+</script>
