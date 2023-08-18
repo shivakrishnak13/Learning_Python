@@ -1,0 +1,33 @@
+# .gitignore
+venv
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.log
+*.env
+*.idea/
+.vscode/
+*.pyproj
+*.pid
+*.coverage
+*.pytest_cache/
+*.egg-info/
+*.mo
+*.pot
+*.log
+*.bak
+
+# Local development settings
+settings_local.py
+local_settings.py
+
+# IDE-specific files
+*.iml
+.idea/
+
+# Editor-specific files
+.vscode/
+*.sublime-project
+*.sublime-workspace

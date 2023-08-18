@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update - Status</title>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/updatestatus.css' %}">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+            <li><a href="{% url 'add_dish' %}">Add Dish</a></li>
+            <li><a href="{% url 'process_order' %}">Process Order</a></li>
+            <li><a href="{% url 'orders_list' %}">Orders List</a></li>
+        </ul>
+    </nav>
+    <div class="order-form">
+        <form method="post">
+            {% csrf_token %}
+            <select name="updated_status" id="updated_status">
+                <option value="{{order.status}}">{{order.status}}</option>
+                {% for status in statuses%}
+                <option value="{{status}}">{{status}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Update dish">
+        </form>
+    </div>
+
+</body>
+</html>

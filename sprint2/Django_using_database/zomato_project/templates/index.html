@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato - Chronicles</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+            <li><a href="{% url 'add_dish' %}">Add Dish</a></li>
+            <li><a href="{% url 'process_order' %}">Process Order</a></li>
+            <li><a href="{% url 'orders_list' %}">Orders List</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <div class="intro">
+                <h2>Welcome to Zesty Zomato</h2>
+                <p>Discover a world of culinary delights with Zesty Zomato. Browse our mouth-watering menu, place
+                    orders,
+                    and track their status. Experience a seamless and efficient food delivery service like never before.
+                </p>
+            </div>
+            <h1 class="main-head">Explore the Zomato Chronicles</h1>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process order</title>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/process_order.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+            <li><a href="{% url 'add_dish' %}">Add Dish</a></li>
+            <li><a href="{% url 'process_order' %}">Process Order</a></li>
+            <li><a href="{% url 'orders_list' %}">Orders List</a></li>
+        </ul>
+    </nav>
+    <div class="dish-form">
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Customer Name</label>
+            <input type="text" name="name" id="name" placeholder="Customer Name" required>
+
+            <label for="ids">Select Available Dishes:</label>
+            <div class="dish-options">
+                {% for dish in menu %}
+                {% if dish.availability %}
+                <label class="dish-card">
+                    <img src="{{ dish.image }}" alt="{{ dish.name }}" class="dish-image">
+                    <div class="dish-details">
+                        <p class="dish-name">{{ dish.name }}</p>
+                        <p class="dish-price">Rs.{{ dish.price }}/-</p>
+                    </div>
+                    <input type="checkbox" name="selected_ids" value="{{ dish.id }}" class="dish-checkbox">
+                </label>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="order-button">Place Order</button>
+        </form>
+    </div>
+</body>
+<script>
+    const processOrderURL = "{% url 'process_order' %}";
+    const ordersListURL = "{% url 'orders_list' %}";
+    const form = document.querySelector("form")
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        manageOrder(e)
+
+    })
+
+    function manageOrder(e) {
+        // const availableMenu = JSON.parse("{{ menu | escapejs }}")
+
+        const new_order = new FormData(e.target)
+        const csrfTKN = new_order.get("csrfmiddlewaretoken")
+        const selected_ids = new_order.getAll("selected_ids")
+
+        if (selected_ids.length === 0) return alert("Please select atleast one item!")
+
+        fetch(processOrderURL, {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": csrfTKN
+            },
+            body: new_order
+        })
+            .then(res => res.text())
+            .then(data => {
+                window.location.href = ordersListURL
+            })
+            .catch(err => {
+                console.log("Something went wrong!", err)
+            })
+
+    }
+</script>
+</html>
